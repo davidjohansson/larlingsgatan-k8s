@@ -17,7 +17,7 @@ kubectl apply -f ig-class.yml
 
 
 
-#Köra
+# Köra
 Man måste köra det här kommandot för att lastbalanserare skall funka:
 minikube tunnel
 
