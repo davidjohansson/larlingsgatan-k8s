@@ -5,20 +5,16 @@
 
 ## Installera
 
-### Ingress
-Man måste installera en ingresscontroller, i minikube görs det genom
+kubectl apply -f namespace.yml
+
+mock-telldus/create-secret.sh
+kubectl apply -f mock-telldus/deployment.yml
+kubectl apply -f mock-telldus/servic-cluster-ip.yml
+
 minikube addons enable ingress
+kubectl apply -f ingress.yml 
+kubectl apply -f ig-class.yml 
 
-kubectl apply -f ingress.yml -n larlingsgatan
-kubectl apply -f ig-class.yml -n larlingsgatan
-
-
-## Deployments
-./create-secret.sh
-kubectl apply -f deployment.yaml -n larlingsgatan
-
-## Service
-kubectl apply -f service-cluster-ip.yml -n larlingsgatan
 
 
 #Köra
