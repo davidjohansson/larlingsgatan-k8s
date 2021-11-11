@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: larlingsgatan-ingress
+  namespace: larlingsgatan
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: mocktelldus.orbilius.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mock-telldus-cip-service
+                port:
+                  number: 8080
+    - host: orbilius.com
+      http:
+        paths:
+          - path: /mocktelldus
+            pathType: Prefix
+            backend:
+              service:
+                name: mock-telldus-cip-service
+                port:
+                  number: 8080
+
+

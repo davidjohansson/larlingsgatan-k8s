@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mock-telldus-deployment 
+  namespace: larlingsgatan
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mock-telldus 
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: mock-telldus 
+    spec:
+      containers:
+      - name: mock-telluds-pod
+        image: 136497237762.dkr.ecr.eu-north-1.amazonaws.com/mock-telldus:latest
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: regcred
+
