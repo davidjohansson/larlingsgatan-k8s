@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: gerbera
+  namespace: larlingsgatan 
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: gerbera-container 
+            image: 136497237762.dkr.ecr.eu-north-1.amazonaws.com/gerbera:latest
+            imagePullPolicy: Always
+            envFrom:
+            - secretRef:
+                name: gerbera-secret
+          restartPolicy: Never 
+          imagePullSecrets:
+            - name: regcred
+          
