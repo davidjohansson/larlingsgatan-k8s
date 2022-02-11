@@ -32,5 +32,10 @@ För att hämta images från aws måste man ha rätt secret, detta confas i depl
  
 `./create-secret.sh`
 
+TODO: 
+- 20210130: Få k9s att funka från laptopen mot klustret. En .config.yaml kommer troligen behövas. Kan den genereras någonstans ifrån, som från Rancher?
+- 20210130: minikube startar igen efter reboot
+- 20220211: testar att köra k3s (https://k3s.io/) istället som verkar vara en mer lättviktig distribution av k8s.
+
 
 
