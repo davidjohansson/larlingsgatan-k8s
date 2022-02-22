@@ -12,7 +12,7 @@ spec:
           containers:
           - name: gerbera-container 
             image: 136497237762.dkr.ecr.eu-north-1.amazonaws.com/gerbera:latest
-            imagePullPolicy: Always
+            imagePullPolicy: IfNotPresent 
             envFrom:
             - secretRef:
                 name: gerbera-secret
